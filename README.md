@@ -10,3 +10,8 @@ based on ``` https://blog.openmined.org/build-an-homomorphic-encryption-scheme-f
 
 
 download the requirements by: ``` pip3 install -r req.txt ```
+
+saved model files will be added soon.
+
+Raise an issue, if you have an issue running the flask server.
+> one noted error, is ``` torch has no "max" member ```, that is a pylinter issue and nothing much can be done. The code runs though
