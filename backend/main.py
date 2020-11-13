@@ -7,7 +7,7 @@ from PIL import Image, ImageOps
 from datetime import datetime
 
 #loading model
-model = torch.load("")   #path of the model to be filled.
+model = torch.load("saved_model/mnist_crypto.pt")   #path of the model to be filled.
 model.eval()
 
 app = Flask(__name__)
@@ -33,8 +33,8 @@ def file():
         _, prediction = torch.max(output, 1)
         result = prediction[0].item()
 
-        return render_template("index.html", filepath=filepath, result=result)
+        return render_template("backend/index.html", filepath=filepath, result=result)
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(port="5000", debug=True)
