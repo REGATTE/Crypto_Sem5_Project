@@ -11,12 +11,12 @@ based on ``` https://blog.openmined.org/build-an-homomorphic-encryption-scheme-f
 
 > 13/11/20
 
-> backend done, static keeps all the upload images stored.
+>   backend done, static keeps all the upload images stored.
 
-> templates hsa the index html file saved.
+>   templates hsa the index html file saved.
 
-> svaed model: mnist_crypto.pt
+>   svaed model: mnist_crypto.pt
 
-> ML model: the saved model file
+>   ML model: the saved model file
 
-> flask: predict.py
+>   flask: predict.py
