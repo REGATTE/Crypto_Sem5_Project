@@ -1,7 +1,5 @@
 # Crypto_Sem5_Project
 
-Bois, we have to start working on this soon!!
-
 Project demonstration = 25th - 26th Nov
 
 Report Submission : 23rd Nov
@@ -22,4 +20,14 @@ based on ``` https://blog.openmined.org/build-an-homomorphic-encryption-scheme-f
    flask: predict.py
 ```
 
-``` Create a static folder, before running the API```
+
+```
+ 14/11/20
+
+   Read files directly from request removing the dependency to store files locally.
+
+   Improve model input mechanism.
+
+   Make application deployable.
+
+```

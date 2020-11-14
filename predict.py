@@ -1,6 +1,9 @@
 #Load the required module
+import os
+
 #Flask related
 from flask import Flask, render_template, request, redirect, url_for, abort
+from flask_cors import CORS, cross_origin
 
 #PyTorch related
 import torch
@@ -43,19 +46,15 @@ model.load_state_dict(
 model = model.eval()
 
 app = Flask(__name__)
-
+cors = CORS(app)
 
 @app.route("/", methods=["GET", "POST"])
 def upload_file():
     if request.method == "GET":
         return render_template("index.html")
     if request.method == "POST":
-        #Save the uploaded file once
-        f = request.files["file"]
-        filepath = "./static/" + datetime.now().strftime("%Y%m%d%H%M%S") + ".png "
-        f.save(filepath)
         #Load image file
-        image = Image.open(filepath)
+        image = Image.open(request.files["file"])
         #Converted to be handled by PyTorch(Resize, black and white inversion, normalization, dimension addition)
         image = ImageOps.invert(image.convert("L")).resize((28, 28))
         transform = transforms.Compose(
@@ -67,8 +66,11 @@ def upload_file():
         _, prediction = torch.max(output, 1)
         result = prediction[0].item()
 
-        return render_template("index.html", filepath=filepath, result=result)
+        return {'result':result}
 
 
 if __name__ == "__main__":
-    app.run(port="5000", debug=True)
+    app.run(
+        port=int(os.environ.get('PORT', 80)),
+        host='0.0.0.0',
+        debug=True)
