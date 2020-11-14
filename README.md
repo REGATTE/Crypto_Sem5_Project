@@ -21,3 +21,5 @@ based on ``` https://blog.openmined.org/build-an-homomorphic-encryption-scheme-f
 
    flask: predict.py
 ```
+
+``` Create a static folder, before running the API```
